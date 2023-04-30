@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div id="outer__home">
+    <div id="inner__home">
+        <div id="form__section">
+            <div id="form__div">
+                <h3 class="heading">Create New Project</h3>
+                <form action="/projects/addProject" method="POST">
+                    <input type="text" name="name" required placeholder="Project Name">
+                    <textarea name="description" cols="30" rows="5" required placeholder="Project Description"></textarea>
+                    <input type="text" name="author" required placeholder="Project Author">
+                    <button type="submit">Add Project</button>
+                </form>
+            </div>
+        </div>
+        <div id="projects__section">
+            <div id="projects__div">
+                <h3 class="heading">Active Projects</h3>
+                <div id="porjects__list">
+                    <ul>
+                        <% for (let project of projects) { %>
+                            <li>
+                                <div class="single__project__outer">
+                                    <div class="single__project__inner">
+                                        <div class="project__key_val">
+                                            <p class="key">Project Name:</p>
+                                            <p class="val"><%= project.project_name %></p>
+                                        </div>
+                                        <div class="project__key_val">
+                                            <p class="key">Project Author:</p>
+                                            <p class="val"><%= project.project_author %></p>
+                                        </div>
+                                        <div class="project__key_val">
+                                            <p class="key">Created At:</p>
+                                            <p class="val"><%= project.createdAt.toLocaleString('en-US', {
+                                                timeZone: 'Asia/Kolkata',
+                                                month: 'short',
+                                                day: '2-digit',
+                                                year: 'numeric',
+                                                hour: '2-digit',
+                                                minute: '2-digit'
+                                            }) %></p>
+                                        </div>
+                                        <div class="action__buttons project__key_val">
+                                            <a href="/issues/projectIssues?project_id=<%= project._id %>">OpenIt</a>
+                                            <a href="/projects/deleteProject?project_id=<%= project._id %>">DeleteIt</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

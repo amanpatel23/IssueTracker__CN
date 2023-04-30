@@ -1,0 +1,270 @@
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.overlay::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.6;
+}
+
+#outer__issue {
+    margin-bottom: 60px;
+}
+
+#inner__issue {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 28px;
+}
+
+.heading {
+    /* background: blue; */
+    padding-bottom: 6px;
+    border-bottom: 2px solid black;
+    margin-bottom: 8px;
+    font-weight: 600px;
+    max-width: 220px;
+}
+
+.subheading {
+    padding-bottom: 6px;
+    border-bottom: 2px solid black;
+    margin-bottom: 8px;
+    font-weight: 600px;
+    max-width: 200px;
+}
+
+form#add__issue__form {
+    background: #BA8BD9;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+form#add__issue__form input, textarea {
+    margin-bottom: 14px;
+    /* width: 350px; */
+    padding: 6px;
+    background: none;
+    border: 1.5px solid #000;
+    border-radius: 8px;
+    color: #000;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+form#add__issue__form input::placeholder, textarea::placeholder {
+    color: #000;
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+form#add__issue__form button {
+    background: #F2A2A2;
+    border: none;
+    padding: 6px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+#title_author input {
+    width: 200px;
+}
+
+#issue__lables h5{
+    text-decoration: underline;
+}
+.single__lable {
+    display: flex;
+    margin-bottom: -2px;
+}
+
+.single__lable input {
+    margin-right: 4px;
+    transform: scale(1.1) translateY(40%);
+}
+
+.f_single__lable input {
+    margin-right: 4px;
+    transform: scale(1.1) translateY(10%);
+}
+
+#issue__section {
+    /* background: blue; */
+    width: 500px;
+}
+
+#project__details {
+    margin-bottom: 18px;
+}
+
+#project__details div {
+    margin-bottom: 6px;
+}
+
+#project__details div:last-child {
+    margin-bottom: 0px;
+}
+
+.project__text {
+    text-decoration: underline;
+}
+
+#issue__list ul {
+    list-style-type: none;
+}
+
+.single__issue__outer {
+    background: #F29F05;
+    border-radius: 14px;
+    margin: 14px 0;
+}
+
+.single__issue__inner {
+    padding: 20px;
+}
+
+.single__issue__inner a {
+    font-weight: 500;
+    text-align: right;
+    display: block;
+}
+
+.issue__key_val {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.issue__desc {
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.issue__key_val .key {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.lable__tags {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 10px !important;
+}
+
+.single__tag {
+    background: #F2A2A2;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.single__tag p {
+    font-weight: 500;
+}
+
+#issue__div form {
+    /* background: blue; */
+    display: flex;
+    width: 100%;
+    margin: 14px 0;
+}
+
+#issue__div form input {
+    width: 100%;
+    font-size: 0.9rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid #000;
+}
+
+#issue__div form input::placeholder {
+    color: #000;
+    opacity: 0.8;
+}
+
+#issue__div form button {
+    margin-left: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    background: #BA8BD9;
+    border: none;
+    font-weight: 700;
+}
+
+#filter__button {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#filter__button p {
+    background: #BA8BD9;
+    display: inline-block;
+    padding: 8px 24px;
+}
+
+#filter__form__outer {
+    display: block;
+    background: #BA8BD9;
+    width: 450px;
+    border-radius: 14px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000;
+    z-index: 5;
+}
+
+#filter__form__inner {
+    padding: 14px;
+}
+
+#filter__form {
+    display: flex;
+    flex-direction: column;
+}
+
+#lables__and__authors {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0;
+}
+
+#filter__form button {
+    background: #F2A2A2;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#close__filter_form {
+    font-weight: 500;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+#filter__form__outer {
+    display: none;
+}

@@ -1,0 +1,17 @@
+#footer__outer {
+    background: #D97F11;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 14px;
+}
+
+#footer__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer__inner p {
+    font-size: 0.9rem;
+}

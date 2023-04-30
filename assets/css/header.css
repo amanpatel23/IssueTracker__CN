@@ -1,0 +1,22 @@
+#navbar__outer {
+    background: #D97F11;
+    padding: 14px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#navbar__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo__text a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+}

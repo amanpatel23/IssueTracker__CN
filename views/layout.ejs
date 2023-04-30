@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- noty -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    
+    <!-- linking styles -->
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <%- style %>
+    <title><%= title %></title>
+
+</head>
+<body>
+
+    <!-- including header and footer partials -->
+    <%- include('_header') %>
+    <%- body %>
+    <%- include('_footer') %>
+
+    <script>
+        // script for setting up the noty
+        <% if (flash.success && flash.success.length > 0) { %>
+            new Noty({
+                theme: 'relax',
+                text: '<%= flash.success %>',
+                type: 'success',
+                layout: 'bottomRight',
+                timeout: 1500
+            }).show();
+        <% } %>
+
+    <% if (flash.error && flash.error.length > 0) { %>
+        new Noty({
+            theme: 'relax',
+            text: '<%= flash.error %>',
+            type: 'error',
+            layout: 'bottomRight',
+            timeout: 1500
+        }).show();
+    <% } %>
+    </script>
+
+    <%- script %>
+</body>
+</html>

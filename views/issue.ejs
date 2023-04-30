@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="/css/issue.css">
+
+<div id="outer__issue">
+    <div id="inner__issue">
+        <div id="form__section">
+            <div id="form__div">
+                <h3 class="heading">Create New Issue</h3>
+                <form id="add__issue__form" action="/issues/addIssue?project_id=<%= project._id %>" method="POST">
+                    <div id="title_author">
+                        <input type="text" name="name" required placeholder="Issue Title">
+                        <input type="text" name="author" required placeholder="Issue Author">
+                    </div>
+                    <textarea name="description" cols="30" rows="5" placeholder="Issue Description"></textarea>
+                    <div id="issue__lables">
+                        <h5>Lables:</h5>
+                        <%- include('_issue_lables') %>
+                    </div>
+                    <button type="submit">Add Issue</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="issue__section">
+            <div id="issue__section__inner">
+                <div id="project__details">
+                    <h3 class="heading">Project Details</h3>
+                    <div id="project__title">
+                        <h4 class="project__text">Project Title:</h4>
+                        <p><%= project.project_name %></p>
+                    </div>
+                    <div id="project__author">
+                        <h4 class="project__text">Project Author:</h4>
+                        <p><%= project.project_author %></p>
+                    </div>
+                    <div id="project__desc">
+                        <h4 class="project__text">Project Description:</h4>
+                        <p><%= project.project_description %></p>
+                    </div>
+                </div>
+                <div id="issue__div">
+                    <h3 class="heading">Active Issues</h3>
+                    <form action="/issues/searchIssues?project_id=<%= project._id %>" method="POST">
+                        <input type="text" name="search__text" required placeholder="Search By Issue Title or Desc">
+                        <button type="submit">Search</button>
+                    </form>
+                    <div id="action__buttons">
+                        <a id="filter__button">
+                            <p>Filter</p>
+                        </a>
+                        <a href="/issues/projectIssues?project_id=<%= project._id %>">Show all Issues</a>
+                    </div>
+                    <div id="issue__list">
+                        <ul>
+                            <% for (issue of project.issues) { %>
+                                <li>
+                                    <div class="single__issue__outer">
+                                        <div class="single__issue__inner">
+                                            <a href="/issues/deleteIssue?project_id=<%= project._id %>&issue_id=<%= issue._id %>">Delete</a>
+                                            <div class="issue__key_val">
+                                                <p class="key">Issue Title:</p>
+                                                <p class="val"><%= issue.issue_name %></p>
+                                            </div>
+                                            <div class="issue__key_val">
+                                                <p class="key">Issue Author:</p>
+                                                <p class="val"><%= issue.issue_author %></p>
+                                            </div>
+                                            <div class="issue__key_val issue__desc">
+                                                <p class="key">Issue Description:</p>
+                                                <p class="val"><%= issue.issue_description %></p>
+                                            </div>
+                                            <div class="lable__tags">
+                                                <% for (lable of issue.issue_lables) { %>
+                                                    <div class="single__tag">
+                                                        <p><%= lable %></p>
+                                                    </div>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="filter__form__outer">
+        <div id="filter__form__inner">
+            <p id="close__filter_form">X</p>
+            <form id="filter__form" action="/issues/filterIssues?project_id=<%= project._id %>" method="POST">
+                <div id="lables__and__authors">
+                    <div id="by__titles">
+                        <h4 class="subheading">Filter By Lables</h4>
+                        <div id="lables__list" class="checkboxes__list">
+                            <%- include('_filter_issue_lables') %>
+                        </div>
+                    </div>
+                    <div id="by__authors">
+                        <h4 class="subheading">Filter By Authors</h4>
+                        <div id="authors__list" class="checkboxes__list">
+                            <% for (let authorName of authorNames) { %>
+                                <div class="f_single__lable">
+                                    <input type="checkbox" name="authors" id="<%= authorName %>" value="<%= authorName %>">
+                                    <label for="<%= authorName %>"><%= authorName %></label>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <button id="filter__btn" type="submit">FilterIt</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<script src="/js/issue_script.js"></script>
