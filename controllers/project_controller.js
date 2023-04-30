@@ -12,7 +12,7 @@ module.exports.addProject = async function(request, response) {
     try {
         // adding the project in the database
         await Project.create({project_name, project_description, project_author});
-        request.flash('success', 'Project Created!');
+        // request.flash('success', 'Project Created!');
         return response.redirect('back');
     }
     catch (error) {
@@ -37,7 +37,7 @@ module.exports.deleteProject = async function (request, response) {
         // deleting the project
         await Project.findByIdAndDelete(projectId);
 
-        request.flash('success', 'Project Deleted!');
+        // request.flash('success', 'Project Deleted!');
         return response.redirect('back');
     }
     catch (error) {

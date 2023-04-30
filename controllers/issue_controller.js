@@ -45,7 +45,7 @@ module.exports.addIssue = async function(request, response) {
         project.issues.push(issue);
         await project.save();
 
-        request.flash('success', 'Issue Added!');
+        // request.flash('success', 'Issue Added!');
         return response.redirect(`/issues/projectIssues?project_id=${project_id}`);
     }
     catch (error) {
@@ -148,7 +148,7 @@ module.exports.deleteIssue = async function(request, response) {
         // deleting the issue from the Issue schema
         await Issue.deleteOne({_id: issueId});
 
-        request.flash('success', 'Issue Deleted!');
+        // request.flash('success', 'Issue Deleted!');
         return response.redirect(`/issues/projectIssues?project_id=${projectId}`);
     }
     catch (error) {
